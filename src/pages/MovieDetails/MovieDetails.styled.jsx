@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const DetailsContainer = styled.div`
   background-color: #fff;
@@ -13,7 +14,7 @@ export const DetailsContainer = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
-export const BackButton = styled.button`
+export const BackLink = styled(Link)`
   background-color: #007bff;
   color: white;
 

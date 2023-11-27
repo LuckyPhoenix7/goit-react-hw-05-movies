@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react';
-import { Outlet, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useState, useEffect, useRef } from 'react';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { getDetails } from 'components/api';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage';
 import {
   DetailsContainer,
-  BackButton,
+  BackLink,
   MovieImage,
   MovieInfo,
   Title,
@@ -30,12 +30,7 @@ export default function MovieDetails() {
   const [error, setError] = useState(false);
 
   const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/';
-  const navigate = useNavigate();
-
-  const onBackLink = () => {
-    navigate(backLinkHref);
-  };
+  const backLink = useRef(location.state?.from ?? '/');
 
   useEffect(() => {
     async function onFetchMovie() {
@@ -73,9 +68,9 @@ export default function MovieDetails() {
 
   return (
     <DetailsContainer>
-      <BackButton onClick={onBackLink}>
+      <BackLink to={backLink.current}>
         <RiArrowGoBackLine size={20} />
-      </BackButton>
+      </BackLink>
 
       {loading && <Loader />}
       {error && <ErrorMessage />}
