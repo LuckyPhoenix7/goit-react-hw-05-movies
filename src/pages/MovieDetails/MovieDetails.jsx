@@ -109,14 +109,10 @@ export default function MovieDetails() {
         <AddTitle>Additional information</AddTitle>
         <AddList>
           <AddItem>
-            <AddLink to="cast" state={{ from: location }}>
-              Cast
-            </AddLink>
+            <AddLink to="cast">Cast</AddLink>
           </AddItem>
           <AddItem>
-            <AddLink to="reviews" state={{ from: location }}>
-              Reviews
-            </AddLink>
+            <AddLink to="reviews">Reviews</AddLink>
           </AddItem>
         </AddList>
       </AddSection>
