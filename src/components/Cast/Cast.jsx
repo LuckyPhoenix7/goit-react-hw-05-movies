@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getCast } from 'components/api';
 import { Loader } from 'components/Loader/Loader';
 import { ErrorMessage } from 'components/ErrorMessage/ErrorMessage';
@@ -17,14 +17,6 @@ export default function Cast() {
   const [actors, setActors] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-
-  const location = useLocation();
-  const backLinkHref = location.state?.from ?? '/';
-  const navigate = useNavigate();
-
-  const handleGoBack = () => {
-    navigate(backLinkHref);
-  };
 
   useEffect(() => {
     async function onFetchActors() {
