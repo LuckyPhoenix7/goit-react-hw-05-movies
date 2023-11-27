@@ -33,7 +33,7 @@ export default function MovieDetails() {
   const backLinkHref = location.state?.from ?? '/';
   const navigate = useNavigate();
 
-  const handleGoBack = () => {
+  const onBackLink = () => {
     navigate(backLinkHref);
   };
 
@@ -73,7 +73,7 @@ export default function MovieDetails() {
 
   return (
     <DetailsContainer>
-      <BackButton onClick={handleGoBack}>
+      <BackButton onClick={onBackLink}>
         <RiArrowGoBackLine size={20} />
       </BackButton>
 
